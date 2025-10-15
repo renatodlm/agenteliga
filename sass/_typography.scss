@@ -1,0 +1,18 @@
+.font-xs {
+    font-size: 24px;   
+    @media (max-width: 678px) {
+        font-size: 24px   * 0.61 
+    }
+}
+.font-sm {
+    font-size: 32px;
+    @media (max-width: 678px) {
+        font-size: 32px * 0.61;
+    }
+}
+.font-lg {
+    font-size: 40px;
+    @media (max-width: 678px) {
+        font-size: 40px * 0.61;
+    }
+}

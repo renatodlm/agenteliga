@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-Italic.eot');
+    src: url('Versos-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Versos-Italic.woff2') format('woff2'),
+        url('Versos-Italic.woff') format('woff'),
+        url('Versos-Italic.ttf') format('truetype'),
+        url('Versos-Italic.svg#Versos-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-SemiBold.eot');
+    src: url('Versos-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Versos-SemiBold.woff2') format('woff2'),
+        url('Versos-SemiBold.woff') format('woff'),
+        url('Versos-SemiBold.ttf') format('truetype'),
+        url('Versos-SemiBold.svg#Versos-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-Bold.eot');
+    src: url('Versos-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Versos-Bold.woff2') format('woff2'),
+        url('Versos-Bold.woff') format('woff'),
+        url('Versos-Bold.ttf') format('truetype'),
+        url('Versos-Bold.svg#Versos-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-Regular.eot');
+    src: url('Versos-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Versos-Regular.woff2') format('woff2'),
+        url('Versos-Regular.woff') format('woff'),
+        url('Versos-Regular.ttf') format('truetype'),
+        url('Versos-Regular.svg#Versos-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-Thin.eot');
+    src: url('Versos-Thin.eot?#iefix') format('embedded-opentype'),
+        url('Versos-Thin.woff2') format('woff2'),
+        url('Versos-Thin.woff') format('woff'),
+        url('Versos-Thin.ttf') format('truetype'),
+        url('Versos-Thin.svg#Versos-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-Light.eot');
+    src: url('Versos-Light.eot?#iefix') format('embedded-opentype'),
+        url('Versos-Light.woff2') format('woff2'),
+        url('Versos-Light.woff') format('woff'),
+        url('Versos-Light.ttf') format('truetype'),
+        url('Versos-Light.svg#Versos-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Versos';
+    src: url('Versos-ExtraBold.eot');
+    src: url('Versos-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('Versos-ExtraBold.woff2') format('woff2'),
+        url('Versos-ExtraBold.woff') format('woff'),
+        url('Versos-ExtraBold.ttf') format('truetype'),
+        url('Versos-ExtraBold.svg#Versos-ExtraBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

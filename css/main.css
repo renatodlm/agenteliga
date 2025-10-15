@@ -904,6 +904,11 @@ section.product-cover {
         z-index: 10;
         text-transform: uppercase;
         font-size: 12px; }
+  @media (max-width: 678px) {
+    .contact_section_1 {
+      padding-top: 100px; }
+      .contact_section_1 .content h1 {
+        font-size: 32px; } }
 
 .contact_section_2 .location {
   display: flex;

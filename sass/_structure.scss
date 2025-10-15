@@ -1192,6 +1192,16 @@ section.product-cover {
       }
     }
   }
+
+  @media (max-width: 678px) {
+    padding-top: 100px;
+
+    .content {
+      h1 {
+        font-size: 32px;
+      }
+    }
+  }
 }
 
 .contact_section_2 {

@@ -35,10 +35,11 @@ get_header();
                 dynamic_sidebar('footer_common');
             }
             ?>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <p><i class="icon-envelope"></i> comercial@liga.com</p>
+            </div>
         </div>
-        <div data-aos="fade-up" data-aos-delay="400">
-            <p><i class="icon-envelope"></i> comercial@liga.com</p>
-        </div>
+
     </div>
 </section>
 <?php

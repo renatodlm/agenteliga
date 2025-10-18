@@ -1,465 +1,465 @@
 .menu-toggle {
-    display: none;
-    width: 48px;
-    height: 48px;
-    background: transparent;
-    border-radius: 8px;
-    padding: 8px;
-    z-index: 999;
+  display: none;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 999;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+
+  @media (max-width: 678px) {
+    display: block;
+  }
+
+  span {
+    width: 100%;
+    background-color: $color-1;
+    height: 2px;
     position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
+    display: block;
+    transition: 300ms;
 
-    &:focus {
-        border: 0;
-        outline: none;
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      background-color: $color-1;
+      height: 2px;
+      display: block;
+      position: absolute;
+      transition: 300ms;
     }
 
-    @media (max-width: 678px) {
-        display: block;
+    &::before {
+      bottom: 100%;
+      margin-bottom: 8px;
     }
-    
+
+    &::after {
+      top: 100%;
+      margin-top: 8px;
+    }
+  }
+
+  &.menu-open {
     span {
-        width: 100%;
-        background-color: $color-1;
-        height: 2px;
-        position: relative;
-        display: block;
-        transition: 300ms;
+      background: transparent;
 
-        &::before,
-        &::after {
-            content: '';
-            width: 100%;
-            background-color: $color-1;
-            height: 2px;
-            display: block;
-            position: absolute;
-            transition: 300ms;
-        }
+      &::before {
+        transform: rotate(-45deg);
+        bottom: 0;
+        margin: 0;
+        background-color: #c9c7c1;
+      }
 
-        &::before {
-            bottom: 100%;
-            margin-bottom: 8px;
-        }
-
-        &::after {
-            top: 100%;
-            margin-top: 8px;
-        }
+      &::after {
+        transform: rotate(45deg);
+        top: 0;
+        margin: 0;
+        background-color: #c9c7c1;
+      }
     }
-
-    &.menu-open {        
-
-        span {
-            background: transparent;
-
-            &::before {
-                transform: rotate(-45deg);
-                bottom: 0;
-                margin: 0;
-                background-color: #c9c7c1;
-                
-            }
-            
-            &::after {
-                transform: rotate(45deg);
-                top: 0;
-                margin: 0;
-                background-color: #c9c7c1;
-            }
-        }
-    }
+  }
 }
 
 .menu-content {
-    width: calc(100% - 136px * 2);
-    nav {
+  width: calc(100% - 136px * 2);
+  nav {
+    > ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+
+      > li {
+        position: relative;
+        font-size: 12px;
+
+        > a {
+          color: $text-color-3;
+        }
+        &:hover {
+          > a {
+            @media (min-width: 678px) {
+              color: $color-1;
+            }
+          }
+        }
+        &:has(ul) {
+          > a {
+            &::after {
+              content: "▼";
+              display: inline-block;
+              margin-left: 8px;
+              font-size: 6px;
+              vertical-align: super;
+            }
+          }
+        }
+
+        a {
+          font-size: 12px;
+          font-weight: 500;
+          display: block;
+          @media (max-width: 678px) {
+            font-size: 16px;
+          }
+          &:hover {
+            color: $color-1 !important;
+          }
+        }
+        ul {
+          align-items: flex-start;
+
+          li {
+            flex-shrink: 0;
+
+            ul {
+              flex-direction: column;
+            }
+          }
+        }
+
         > ul {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-    
-            > li {
-                position: relative;
-                font-size: 12px;
-                
-                > a  {
-                    color: $text-color-3;
-                }
-                &:hover {
-                    > a  {
-                        @media(min-width: 678px) {
-                            color: $color-1;
-                        }
-                    }
-                }
-                &:has(ul) {
-                    > a {
-                        &::after {
-                            content: '▼';
-                            display: inline-block;
-                            margin-left: 8px;
-                            font-size: 6px;
-                            vertical-align: super;
-                        }
-                    }
-                }
-    
-                a {
-                    font-size: 12px;
-                    font-weight: 500;
-                    @media (max-width: 678px) {
-                        font-size: 16px;
-                    }
-                    &:hover {
-                        color: $color-1;
-                    
-                    }
-                }
-                ul {
-                    align-items: flex-start;
-    
-                    li {                        
-                        flex-shrink: 0;
-
-                        ul {
-                            flex-direction: column;
-                        }
-                    }
-                }
-    
-                > ul {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    > li {
-                        border-radius: 0 0 4px 4px;
-                        padding: 8px;
-                        flex-shrink: 0;
-                        border-top: 2px solid $color-1;
-                        > a {
-                            text-transform: uppercase;
-                        }
-                        
-                        &:nth-child(2) {
-                            background-color: $color-2;
-                            > a {
-                                color: $text-color-2;
-                            }
-                        }
-                        
-                        &:first-child {
-                            background-color: $color-3;
-                            > a {
-                                color: $color-1;                               
-                            }
-                            > ul a{
-                                
-                            }
-                        }
-                        &:last-child {
-                            background-color: $text-color-3;
-                            > a {
-                                color: $color-1;                               
-                            }
-                            > ul a{
-                                color: $text-color-4;                               
-                            }
-                        }
-                        > ul {
-                            
-                            a {
-                                color: $text-color-4;
-                                display: block;
-                            }
-                        }
-                    }
-                }
-    
-                @media (min-width: 678px) {
-                    &:hover {
-                        ul {
-                            display: flex;
-                        }
-                    }                    
-                }
-    
-            }
-        }
-
-    }
-
-    .btn {
-        margin-top: 24px;
-    }
-
-    @media (max-width: 678px) {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        padding: 0;
-        width: 100%;
-        height: 100vh;
-        height: 100dvh; // Usar altura dinâmica
-        background: $color-1;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.15);
-        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        z-index: 998;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        will-change: transform;
-
-        .head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 32px 66px 24px 16px;
-            .custom-logo {
-                filter: brightness(100) saturate(100);
-                width: 86px;
-                position: relative;
-                top: -10px;
-            }
-        }        
-        
-
-        nav {
-            display: block;
-            flex: 1; // Ocupa todo espaço disponível
-            overflow-y: auto; // Scroll apenas no nav
-            -webkit-overflow-scrolling: touch; // Smooth scroll no iOS
-            
-            // Scroll bar customizada (webkit)
-            &::-webkit-scrollbar {
-                width: 0;
-            }
-           
-            &::-webkit-scrollbar-track {
-                background: rgba($color-1, 0.1);
-                border-radius: 2px;
-            }
-            
-            &::-webkit-scrollbar-thumb {
-                background: rgba($color-1, 0.3);
-                border-radius: 2px;
-                
-                &:hover {
-                    background: rgba($color-1, 0.5);
-                }
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          > li {
+            border-radius: 0 0 4px 4px;
+            padding: 8px;
+            flex-shrink: 0;
+            border-top: 2px solid $color-1;
+            > a {
+              text-transform: uppercase;
             }
 
+            &:nth-child(2) {
+              background-color: $color-2;
+              > a {
+                color: $text-color-2;
+              }
+            }
+
+            &:first-child {
+              background-color: $color-3;
+              > a {
+                color: $color-1;
+              }
+              > ul a {
+              }
+            }
+            &:nth-child(3) {
+              background-color: #9c9a95;
+              > a {
+                color: #6a6963 !important;
+              }
+            }
+
+            &:last-child {
+              background-color: $text-color-3;
+              > a {
+                color: $color-1;
+              }
+              > ul a {
+                color: $text-color-4;
+              }
+            }
             > ul {
-                display: block !important; // Força exibição no menu mobile
-                gap: 0;
-
-                
-
-                > li {
-
-                    a {
-                        padding: 8px 16px;
-                        color: #c9c7c1!important;
-                        padding: 4px 16px 0;
-                        display: block;
-                    }
-
-                    // Submenus em mobile
-                    > ul {
-                        position: static;
-                        display: block;
-                        background: transparent;
-                        box-shadow: none;
-                        margin-top: 8px;
-                        > li {
-                            border-radius: 0;
-                            border-top: 0;
-                            padding: 16px 0;
-                            &:first-child {
-                                > a {
-                                    padding-bottom: 0;
-                                }
-                            }
-                            > ul {
-                                margin-top: 0;
-                            }
-                        }
-                    }
-
-                    // Remove seta dropdown em mobile
-                    &:has(ul) > a::after {
-                        display: none;
-                    }
-
-                    &:last-child {
-                        padding: 16px 0;
-                    }
-                    
-                }
+              a {
+                color: $text-color-4;
+                display: block;
+              }
             }
+          }
         }
 
-        // Seletor de idioma no menu mobile - duas caixas lado a lado
-        .language-selector {
-            flex-shrink: 0; // Não encolhe
-            position: relative; // Para o pseudo-elemento
-            margin: 0;
-            // Layout das duas caixas
-            display: flex;
-            justify-content: center;
-            
-            // Para telas muito pequenas
-            @media (max-width: 320px) {
-                gap: 8px;
-                padding: 20px 16px 28px 16px;
+        @media (min-width: 678px) {
+          &:hover {
+            ul {
+              display: flex;
             }
-            
-            // Adiciona sombra sutil para separar do nav
-            &::before {
-                content: '';
-                position: absolute;
-                top: -2px;
-                left: 24px;
-                right: 24px;
-                height: 1px;
-                background: linear-gradient(90deg, transparent 0%, rgba($color-1, 0.3) 50%, transparent 100%);
-            }
-
-            .language-box {
-                color: #c9c7c1;
-                font-size: 16px;
-                font-weight: 500;
-                text-align: center;
-                text-decoration: none;
-                
-                // Para telas muito pequenas
-                @media (max-width: 320px) {
-                    font-size: 14px;
-                    padding: 14px 8px;
-                }
-                
-                
-                // Idioma atual - destacado
-                &.current {
-                    color: white;
-                    font-weight: bold;
-                    cursor: default;
-                }
-                &:first-child {
-                    &::after {
-                        content: '/';
-                        margin: 0 4px;
-                    }
-                }
-            }
+          }
         }
-
-        &.open {
-            display: flex; // Mantém layout flexbox
-            right: 0;
-            
-            // Animação sutil para destacar o novo layout
-            nav {
-                animation: slideInContent 0.6s ease-out 0.2s both;
-            }
-            
-            .language-selector {
-                animation: slideInLanguage 0.6s ease-out 0.4s both;
-            }
-        }
+      }
     }
+  }
+
+  .btn {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 678px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; // Usar altura dinâmica
+    background: $color-1;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 998;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 66px 24px 16px;
+      .custom-logo {
+        filter: brightness(100) saturate(100);
+        width: 86px;
+        position: relative;
+        top: -10px;
+      }
+    }
+
+    nav {
+      display: block;
+      flex: 1; // Ocupa todo espaço disponível
+      overflow-y: auto; // Scroll apenas no nav
+      -webkit-overflow-scrolling: touch; // Smooth scroll no iOS
+
+      // Scroll bar customizada (webkit)
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba($color-1, 0.1);
+        border-radius: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba($color-1, 0.3);
+        border-radius: 2px;
+
+        &:hover {
+          background: rgba($color-1, 0.5);
+        }
+      }
+
+      > ul {
+        display: block !important; // Força exibição no menu mobile
+        gap: 0;
+
+        > li {
+          a {
+            padding: 8px 16px;
+            color: #c9c7c1 !important;
+            padding: 4px 16px 0;
+            display: block;
+          }
+
+          // Submenus em mobile
+          > ul {
+            position: static;
+            display: block;
+            background: transparent;
+            box-shadow: none;
+            margin-top: 8px;
+            > li {
+              border-radius: 0;
+              border-top: 0;
+              padding: 16px 0;
+              &:first-child {
+                > a {
+                  padding-bottom: 0;
+                }
+              }
+              > ul {
+                margin-top: 0;
+              }
+            }
+          }
+
+          // Remove seta dropdown em mobile
+          &:has(ul) > a::after {
+            display: none;
+          }
+
+          &:last-child {
+            padding: 16px 0;
+          }
+        }
+      }
+    }
+
+    // Seletor de idioma no menu mobile - duas caixas lado a lado
+    .language-selector {
+      flex-shrink: 0; // Não encolhe
+      position: relative; // Para o pseudo-elemento
+      margin: 0;
+      // Layout das duas caixas
+      display: flex;
+      justify-content: center;
+
+      // Para telas muito pequenas
+      @media (max-width: 320px) {
+        gap: 8px;
+        padding: 20px 16px 28px 16px;
+      }
+
+      // Adiciona sombra sutil para separar do nav
+      &::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: 24px;
+        right: 24px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba($color-1, 0.3) 50%,
+          transparent 100%
+        );
+      }
+
+      .language-box {
+        color: #c9c7c1;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: none;
+
+        // Para telas muito pequenas
+        @media (max-width: 320px) {
+          font-size: 14px;
+          padding: 14px 8px;
+        }
+
+        // Idioma atual - destacado
+        &.current {
+          color: white;
+          font-weight: bold;
+          cursor: default;
+        }
+        &:first-child {
+          &::after {
+            content: "/";
+            margin: 0 4px;
+          }
+        }
+      }
+    }
+
+    &.open {
+      display: flex; // Mantém layout flexbox
+      right: 0;
+
+      // Animação sutil para destacar o novo layout
+      nav {
+        animation: slideInContent 0.6s ease-out 0.2s both;
+      }
+
+      .language-selector {
+        animation: slideInLanguage 0.6s ease-out 0.4s both;
+      }
+    }
+  }
 }
 
 // Overlay para fechar menu em mobile
 .menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba($color-1, 0.15);
-    backdrop-filter: blur(3px);
-    z-index: 997;
-    opacity: 0;
-    transition: all 0.4s ease;
-    
-    // Força sobreposição de outros elementos
-    inset: 0;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color-1, 0.15);
+  backdrop-filter: blur(3px);
+  z-index: 997;
+  opacity: 0;
+  transition: all 0.4s ease;
 
-    &.active {
-        display: block;
-        opacity: 1;
-    }
+  // Força sobreposição de outros elementos
+  inset: 0;
+
+  &.active {
+    display: block;
+    opacity: 1;
+  }
 }
 
 // Controle de visibilidade dos seletores de idioma
 .mobile-language {
-    display: none; // Escondido por padrão
+  display: none; // Escondido por padrão
 
-    @media (max-width: 678px) {
-        display: block; // Mostra no mobile
-    }
+  @media (max-width: 678px) {
+    display: block; // Mostra no mobile
+  }
 }
 
 .desktop-language {
-    display: block; // Mostra por padrão
+  display: block; // Mostra por padrão
 
-    @media (max-width: 678px) {
-        display: none; // Esconde no mobile
-    }
+  @media (max-width: 678px) {
+    display: none; // Esconde no mobile
+  }
 }
 
 // Animações para entrada do menu mobile
 @keyframes slideInContent {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInLanguage {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // Classes para controle de scroll durante menu mobile
 body.menu-scroll-locked {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
 }
 
 // Previne scroll durante menu mobile
 html.menu-scroll-locked {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 // Ajustes no header para mobile
 @media (max-width: 678px) {
-    .header-container {
-        justify-content: space-between;
-        align-items: center;
+  .header-container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // Esconde apenas o menu desktop (quando não está aberto)
+  .menu-content:not(.open) {
+    nav > ul {
+      display: none !important;
     }
-    
-    // Esconde apenas o menu desktop (quando não está aberto)
-    .menu-content:not(.open) {
-        nav > ul {
-            display: none !important;
-        }
-    }
+  }
 }

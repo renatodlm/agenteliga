@@ -238,7 +238,7 @@ section {
   }
 
   .content {
-    max-width: 1200px;
+    max-width: 650px;
     width: 100%;
     text-align: center;
     margin: 0 auto;
@@ -246,6 +246,7 @@ section {
     h1 {
       font-size: 58px;
       margin-bottom: 8px;
+      text-transform: uppercase;
 
       @media (max-width: 1300px) {
         font-size: 42px;
@@ -615,7 +616,7 @@ section.product-cover {
   .content {
     display: flex;
     gap: 22px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 
     @media (max-width: 678px) {
@@ -623,15 +624,63 @@ section.product-cover {
     }
 
     > div {
-      border-radius: 4px;
+      border-radius: 8px;
       background-color: #c0bfbb;
-      padding: 20px;
-      display: flex;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
       gap: 40px;
       margin-top: 40px;
 
+      @media (max-width: 678px) {
+        gap: 20px;
+        padding: 20px;
+      }
+
+      &:nth-child(1) {
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin-top: -20px;
+          margin-left: 40px;
+          width: 40px;
+          height: 40px;
+          background-image: url(../assets/icone-produtos.svg);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          z-index: 2;
+
+          @media (max-width: 678px) {
+            margin-left: 20px;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        text-align: left;
+        grid-auto-flow: column;
+        direction: rtl;
+
+        @media (max-width: 678px) {
+          grid-auto-flow: row;
+          direction: ltr;
+        }
+      }
+
+      @media (max-width: 678px) {
+        // grid-template-columns: 1fr;
+      }
+
       p {
-        font-size: 20px;
+        font-size: 23.5px;
+        max-width: 240px;
+        line-height: 1.2;
+        margin-bottom: 0 !important;
 
         @media (max-width: 678px) {
           font-size: 16px;
@@ -659,20 +708,32 @@ section.product-cover {
       }
 
       > div {
-        flex-shrink: 0;
-        flex-basis: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
 
-        @media (max-width: 678px) {
-          flex-basis: 40%;
+        p {
+          margin-bottom: 8px !important;
         }
 
         img {
-          transform: scale(1.5);
           position: relative;
           top: -40px;
-          width: 135px;
-          height: 165px;
+          max-width: 280px;
+          width: 280px;
+          height: auto;
           object-fit: contain;
+          margin: -100px -40px -50px;
+
+          @media (max-width: 678px) {
+            top: 0;
+            margin: 0 auto;
+            max-width: 181px;
+            width: 181px;
+            margin: -80px -40px 0px;
+          }
         }
 
         p {
@@ -784,7 +845,7 @@ section.product-cover {
     .product {
       display: flex;
       gap: 40px;
-      align-items: flex-start;
+      align-items: center;
       position: relative;
 
       @media (max-width: 678px) {
@@ -855,7 +916,7 @@ section.product-cover {
     .product {
       display: flex;
       gap: 40px;
-      align-items: flex-end;
+      align-items: center;
       position: relative;
       z-index: 1;
       padding: 40px 0;
@@ -1145,6 +1206,7 @@ section.product-cover {
         box-shadow: none;
         height: auto;
         color: #595856;
+        margin-bottom: 0;
 
         &::placeholder {
           color: $color-1;
@@ -1261,7 +1323,7 @@ section.product-cover {
     > div {
       &:last-child {
         @media (min-width: 1200px) {
-          margin-left: 80px;
+          //   margin-left: 80px;
         }
 
         p {

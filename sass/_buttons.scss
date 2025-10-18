@@ -1,13 +1,18 @@
 .btn {
-    display: block;
-    padding: 6px 24px;
-    background-color: $color-1;
-    color: #fff;
-    width: fit-content;
-    text-transform: uppercase;
-    border-radius: 500px;
-    font-size: 12px;
-    &:hover {
-        color: #fff;
-    }
+  display: block;
+  padding: 6px 24px;
+  background-color: $color-1;
+  color: #fff;
+  width: fit-content;
+  text-transform: uppercase;
+  border-radius: 500px;
+  font-size: 12px;
+  &:hover,
+  &:focus {
+    color: #fff !important;
+  }
+
+  @media (max-width: 678px) {
+    padding: 6px 16px;
+  }
 }
